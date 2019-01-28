@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import { Category } from 'pages';
-import axios from 'axios';
+import API from 'api';
 
 class Categories extends React.Component {
     state = {
@@ -9,7 +9,7 @@ class Categories extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://13.209.115.132/api/categories/page?limit=100&offset=1')
+        API.get('api/categories/page?limit=100&offset=1')
             .then(res => {
                 const categories = res.data.CategoryList;
                 this.setState({ categories });

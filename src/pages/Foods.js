@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 // import { Food } from 'pages';
-import axios from 'axios';
+import API from 'api';
 
 class Foods extends React.Component {
     state = {
@@ -9,7 +9,7 @@ class Foods extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://13.209.115.132/api/foods/page?limit=100&offset=1')
+        API.get('api/foods/page?limit=100&offset=1')
             .then(res => {
                 const foods = res.data.FoodList;
                 this.setState({ foods });

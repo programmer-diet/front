@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Brand } from 'pages';
-import axios from 'axios';
+import API from 'api';
 
 class Brands extends React.Component {
     state = {
@@ -9,7 +9,7 @@ class Brands extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://13.209.115.132/api/brands/page?limit=100&offset=1')
+        API.get('api/brands/page?limit=100&offset=1')
             .then(res => {
                 const brands = res.data.BrandList;
                 this.setState({ brands });
