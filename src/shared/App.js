@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Home, Categories, Brands } from 'pages';
+import { Home, Categories, Brands, Foods } from 'pages';
 import { Menu } from 'components';
 
 class App extends Component {
@@ -11,10 +11,8 @@ class App extends Component {
         <Menu/>
         <Route exact path="/" component={Home}/>
         <Route path="/categories" component={Categories}/>
-        <Switch>
-          <Route path="/brands/:name" component={Brands}/>
-          <Route path="/brands" component={Brands}/>
-        </Switch>
+        <Route path="/brands" component={Brands}/>
+        <Route path="/foods" component={Foods}/>
       </div>
     );
   }
