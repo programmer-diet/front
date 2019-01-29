@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
-// import { Food } from 'pages';
+import { Link, Route, Switch } from 'react-router-dom';
+import { List } from 'semantic-ui-react'
+import { Food } from 'components';
 import API from 'api';
 
 class Foods extends React.Component {
@@ -19,13 +20,18 @@ class Foods extends React.Component {
     render() {
         return (
             <div>
-                <h2>Food List</h2>
-                <ul>
-                    { this.state.foods.map(food => 
-                        <li><Link to={`${this.props.match.url}/${food.Id}`}>{food.Food.Name}</Link></li>
-                    )}
-                </ul>
-                {/* <Route path={`${this.props.match.url}/:id`} component={Food}/> */}
+                <Switch>
+                    <Route path="/foods/:id" component={Food}/>
+                    <Route path="/foods">
+                        <List link>
+                            { this.state.foods.map(food => 
+                                <List.Item>
+                                    <Link to={`${this.props.match.url}/${food.Food.Id}`}>{food.Food.Name}</Link>
+                                </List.Item>
+                            )}
+                        </List>
+                    </Route>
+                </Switch>
             </div>
         )
     }

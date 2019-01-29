@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import { Category } from 'pages';
+import { Link, Route, Switch } from 'react-router-dom';
+import { List } from 'semantic-ui-react'
+import { Category } from 'components';
 import API from 'api';
 
 class Categories extends React.Component {
@@ -19,13 +20,18 @@ class Categories extends React.Component {
     render() {
         return (
             <div>
-                <h2>Category List</h2>
-                <ul>
-                    { this.state.categories.map(category => 
-                        <li><Link to={`${this.props.match.url}/${category.Id}`}>{category.Name}</Link></li>
-                    )}
-                </ul>
-                <Route path={`${this.props.match.url}/:id`} component={Category}/>
+                <Switch>
+                    <Route path="/categories/:id" component={Category}/>
+                    <Route path="/categories">
+                        <List link>
+                            { this.state.categories.map(category => 
+                                <List.Item>
+                                    <Link to={`${this.props.match.url}/${category.Id}`}>{category.Name}</Link>
+                                </List.Item>
+                            )}
+                        </List>
+                    </Route>
+                </Switch>
             </div>
         )
     }

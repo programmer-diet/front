@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import { Brand } from 'pages';
+import { List } from 'semantic-ui-react'
+import { Brand } from 'components';
 import API from 'api';
 
 class Brands extends React.Component {
@@ -19,15 +20,16 @@ class Brands extends React.Component {
         
         return (
             <div>
-                <h2>Brand List</h2>
                 <Switch>
                     <Route path='/brands/:id' component={Brand}/>
                     <Route path='/brands'>
-                        <ul>
+                        <List link>
                             { this.state.brands.map(brand => 
-                                <li><Link to={`${this.props.match.url}/${brand.Id}`}>{brand.Name}</Link></li>
+                                <List.Item>
+                                    <Link to={`${this.props.match.url}/${brand.Id}`}>{brand.Name}</Link>
+                                </List.Item>
                             )}
-                        </ul>
+                        </List>
                     </Route>
                 </Switch>
             </div>

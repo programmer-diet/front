@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Brand = ({match}) => {
     return (
         <div>
-            <h2>
-                Brand {match.params.id}
-            </h2>
+            <h5>
+                {match.params.id}
+            </h5>
             <Link to='/brands'>back</Link>
         </div>
     )

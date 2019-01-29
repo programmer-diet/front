@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Home, Categories, Brands, Foods } from 'pages';
-import { Menu } from 'components';
+import { MenuBar, BreadcrumbHeader } from 'components';
+
+
+import 'semantic-ui-css/semantic.min.css'
 
 class App extends Component {
   render() {
     return (
       <div>
-        {/* <Search/> */}
-        <Menu/>
+        <MenuBar/>
+        {/* <BreadcrumbHeader/> */} 
         <Route exact path="/" component={Home}/>
         <Route path="/categories" component={Categories}/>
         <Route path="/brands" component={Brands}/>
