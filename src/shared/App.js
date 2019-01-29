@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div>
         <MenuBar/>
-        {/* <BreadcrumbHeader/> */} 
+        {/* <BreadcrumbHeader/>  */}
         <Route exact path="/" component={Home}/>
         <Route path="/categories" component={Categories}/>
         <Route path="/brands" component={Brands}/>
